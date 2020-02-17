@@ -1,12 +1,24 @@
 var Encore = require('@symfony/webpack-encore');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-Encore
-    // directory where compiled assets will be stored
-    .setOutputPath('dist/')
-    // public path used by the web server to access the output path
-    .setPublicPath('/')
+if (Encore.isProduction()) {
+    Encore
+      // directory where compiled assets will be stored
+      // for local testing .setOutputPath('dist/station-initials_v2/')
+      // save to dist/gh-pages  .setOutputPath('dist/station-initials_v2/')
+      .setOutputPath('dist/station-initials_v2/')
+      // public path used by the web server to access the output path
+      .setPublicPath('/station-initials_v2/')
+      .setManifestKeyPrefix('station-initials_v2/')
+} else {
+    Encore
+      // directory where compiled assets will be stored
+      .setOutputPath('dist/')
+      // public path used by the web server to access the output path
+      .setPublicPath('/')
+}
 
+Encore
     /*
      * ENTRY CONFIG
      *
@@ -45,4 +57,3 @@ Encore
 ;
 
 module.exports = Encore.getWebpackConfig();
-// console.log(module.exports);

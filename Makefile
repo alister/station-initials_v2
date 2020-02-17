@@ -27,7 +27,9 @@ yarn-upgrade:
 	$(YARN) upgrade
 
 webserver:
-	symfony serve --allow-http --no-tls --document-root=dist/ --daemon #nas.abulman.co.uk:8000
+	symfony server:start --allow-http --no-tls --document-root=dist/ --daemon
+webserver-stop:
+	symfony server:stop
 webserver-logs:
 	symfony server:log
 
@@ -41,6 +43,9 @@ watch:
 	$(YARN) encore dev --watch
 prod:
 	clear
+	sudo rm -rf dist
+	git worktree prune
+	git worktree add -f ./dist gh-pages
 	$(YARN) encore production
 
 # Run install on the new ansible-test server, on local Vagrant
@@ -53,7 +58,7 @@ prod:
 # deploy-check:
 # 	bundle exec cap prod deploy:check
 clean:
-	sudo rm -rf dist/
+	sudo rm -rf dist/*
 
 ########################################################################
 # from: https://github.com/kvz/fakefile/blob/master/Makefile
