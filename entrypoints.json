@@ -2,10 +2,10 @@
   "entrypoints": {
     "app": {
       "css": [
-        "/app.css"
+        "/app.bb1fddf5.css"
       ],
       "js": [
-        "/app.js"
+        "/app.11299cc8.js"
       ]
     }
   }
