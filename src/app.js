@@ -11,6 +11,11 @@ require('./images/favicon-96x96.png');
 require('./images/Aberdeen_station.jpg');
 require('./images/logo.png');
 
+require('./images/twitter.svg');
+require('./images/wordpress.svg');
+require('./images/stackexchange.svg');
+require('./images/github.svg');
+
 var StationCodes = require('./stationCodeLookup');
 
 stationCodeHandler = function() {

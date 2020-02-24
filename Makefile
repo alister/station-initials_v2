@@ -41,22 +41,20 @@ build:
 watch:
 	clear
 	$(YARN) encore dev --watch
+
+# see: https://gist.github.com/ErickPetru/b1b3138ab0fc6c82cd19ea3a1a944ba6
 prod:
 	clear
 	sudo rm -rf dist
 	git worktree prune
 	git worktree add -f ./dist gh-pages
 	$(YARN) encore production
+deploy-gh-pages:
+	cd dist
+	git add --all
+	git commit -m "Deploy on gh-pages updated"
+	git push origin gh-pages
 
-# Run install on the new ansible-test server, on local Vagrant
-# deploy-vagrant:
-# 	bundle exec cap vagrant deploy
-# deploy:
-# 	bundle exec cap prod deploy
-# deploy-trace:
-# 	bundle exec cap prod deploy --trace
-# deploy-check:
-# 	bundle exec cap prod deploy:check
 clean:
 	sudo rm -rf dist/*
 
