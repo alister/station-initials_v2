@@ -1,0 +1,12 @@
+{
+  "entrypoints": {
+    "app": {
+      "css": [
+        "/station-initials_v2/app.77c37dda.css"
+      ],
+      "js": [
+        "/station-initials_v2/app.d33b9503.js"
+      ]
+    }
+  }
+}

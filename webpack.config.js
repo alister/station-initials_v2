@@ -3,15 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('dist/')
+    .setOutputPath('docs/')
 
 if (Encore.isProduction()) {
     Encore
-      // public path, for Prod, when about to save to dist/gh-pages
+      // public path, for Prod, when about to save to docs/gh-pages
       .setPublicPath('/station-initials_v2/')
       .setManifestKeyPrefix('station-initials_v2/')
       // for local testing, *only*, as prod - http://nas.abulman.co.uk:8000/station-initials_v2/
-      // .setOutputPath('dist/station-initials_v2/')
+      // .setOutputPath('docs/station-initials_v2/')
 } else {
     // public path used by the web server to access the output path
     Encore

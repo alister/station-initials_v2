@@ -29,7 +29,7 @@ yarn-audit:
 	$(YARN) audit
 
 webserver:
-	symfony server:start --allow-http --no-tls --document-root=dist/ --daemon
+	symfony server:start --allow-http --no-tls --document-root=docs/ --daemon
 webserver-stop:
 	symfony server:stop
 webserver-logs:
@@ -47,15 +47,13 @@ watch:
 # see: https://gist.github.com/ErickPetru/b1b3138ab0fc6c82cd19ea3a1a944ba6
 prod:
 	clear
-	sudo rm -rf dist
-	git worktree prune
-	git worktree add -f ./dist gh-pages
+	sudo rm -rf docs
 	$(YARN) encore production
 deploy-gh-pages:
-	cd dist && git add --all  && git commit -m "Deploy on gh-pages updated" && git push origin gh-pages
+	cd docs && git add --all  && git commit -m "Deploy on gh-pages updated" && git push # origin gh-pages
 
 clean:
-	sudo rm -rf dist/*
+	sudo rm -rf docs/*
 
 ########################################################################
 # from: https://github.com/kvz/fakefile/blob/master/Makefile
